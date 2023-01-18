@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function f() {
+            let url = window.location.href
+            console.log(url)
+            let code = url.slice(url.indexOf('=') + 1)
+            console.log(code)
+
+            if (url.includes('code')){
+                // Generate code button
+
+            }
+            else{
+                // Display Access token
+                document.getElementById('button').style.display = 'none'
+                document.querySelector('#access_code') = url
+            }
+
+            document.querySelector('#code').value = code
+
+           
+        }
+    
+    </script>
+
+</head>
+<body onload="f()">
+    <p>GitHub integration successful</p>
+
+    <p id="access_token"></p>
+
+    <form action="https://github.com/login/oauth/access_token" method="post" id="form1">
+        <input type="hidden" name="client_id" value="06ac5be7de47e24d883e">
+        <input type="hidden" name="client_secret" value="cba0481b3507c3a655a74328d496f609c1852b9f">
+        <input type="hidden" name="code" id="code">
+        <input type="hidden" name="redirect_uri" value="https://jordanfalkbbd.github.io/success.html">
+        <button type="submit" id="button">Get Access Token</button>
+    </form>
+</body>
+
+</html>
